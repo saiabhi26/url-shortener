@@ -31,3 +31,13 @@ curl -X POST http://localhost:8000/shorten \
 ```
 
 Then visit the returned `short_url` in your browser, or curl it (with `-L` to follow the redirect).
+
+### Tests
+ 
+```bash
+pytest -v
+```
+ 
+Tests run against a separate, isolated SQLite database (`test.db`), wiped clean before every
+test, so they never touch your real local `url_shortener.db`. See `tests/conftest.py` for
+how the database dependency is overridden.
